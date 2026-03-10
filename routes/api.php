@@ -5,20 +5,17 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:sanctum');
-
 Route::controller(AuthController::class)
     ->group(function () {
        Route::post('/register', 'register');
        Route::post('/login', 'login');
-       Route::delete('/logout', 'logout')->middleware('auth:sanctum');
+       Route::delete('/logout', 'logout')->middleware('auth:api');
+       Route::post('/refresh', 'refresh')->middleware('auth:api');
     });
 
 Route::controller(ProfileController::class)
     ->prefix('/me')
-    ->middleware('auth:sanctum')
+    ->middleware('auth:api')
     ->group(function () {
         Route::get('/', 'index');
         Route::put('/', 'update');

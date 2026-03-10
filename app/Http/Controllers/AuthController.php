@@ -23,26 +23,42 @@ class AuthController extends Controller
     {
         $credentials = $request->validated();
 
-        if (!auth()->attempt($credentials)) {
-            return response()->json([
-                'message' => 'Invalid credentials',
-            ], 401);
+        if (!$token = auth()->attempt($credentials)) {
+            return response()->json(['message' => 'Invalid credentials'], 401);
         }
 
-        $token = auth()->user()->createToken('auth_token')->plainTextToken;
-
-        return response()->json([
-            'message' => 'Login successful',
-            'token' => $token,
-        ]);
+        return $this->respondWithToken($token, 'Login successful');
     }
 
     public function logout(): JsonResponse
     {
-        auth()->user()->tokens()->delete();
+        auth()->logout();
 
         return response()->json([
             'message' => 'Logout successful',
+        ]);
+    }
+
+    /**
+     * Refresh a token.
+     */
+    public function refresh(): JsonResponse
+    {
+        return $this->respondWithToken(auth()->refresh(), 'Token refreshed');
+    }
+
+    /**
+     * Get the token array structure.
+     *
+     * @param string $token
+     * @param string $message
+     * @return JsonResponse
+     */
+    protected function respondWithToken(string $token, string $message): JsonResponse
+    {
+        return response()->json([
+            'message' => $message,
+            'token' => $token,
         ]);
     }
 }
