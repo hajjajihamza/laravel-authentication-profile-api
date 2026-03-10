@@ -1,59 +1,75 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Laravel Authentication & Profile API
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+API REST développée avec **Laravel** permettant la gestion d’authentification utilisateur et la manipulation du profil.  
+Cette API est **testable uniquement via Postman** (aucun frontend).
 
-## About Laravel
+Le projet démontre la maîtrise de :
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- Authentification par token
+- Protection des routes API
+- Gestion du profil utilisateur
+- Validation des données
+- Bonnes pratiques REST API
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+# Table of Contents
 
-## Learning Laravel
+- [Project Context](#project-context)
+- [Main Features](#main-features)
+- [Tech Stack](#tech-stack)
+- [Installation](#installation)
+- [Environment Configuration](#environment-configuration)
+- [Running the Project](#running-the-project)
+- [Authentication](#authentication)
+- [API Routes](#api-routes)
+- [Profile Management](#profile-management)
+- [API Documentation](#api-documentation)
+- [Testing Scenario](#testing-scenario)
+- [Security Rules](#security-rules)
+- [Bonus - JWT Authentication](#bonus---jwt-authentication)
+- [Project Structure](#project-structure)
+- [Author](#author)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+---
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+# Project Context
 
-## Laravel Sponsors
+Vous êtes développeur Backend et devez livrer une **API Laravel sécurisée** permettant la gestion d’utilisateurs et de profils.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Cette API doit être **testable uniquement via Postman**.
 
-### Premium Partners
+Objectif :
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+- Gestion d'identité utilisateur
+- Authentification par token
+- Protection des routes
+- Manipulation du profil utilisateur
 
-## Contributing
+---
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+# Main Features
 
-## Code of Conduct
+L’API permet à un utilisateur de :
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- Créer un compte
+- Se connecter et obtenir un token
+- Se déconnecter
+- Consulter son profil
+- Modifier ses informations
+- Changer son mot de passe
+- Supprimer son compte
 
-## Security Vulnerabilities
+Toutes les routes de gestion du profil sont **protégées par authentification**.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+---
 
-## License
+# Tech Stack
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- **Laravel**
+- **Laravel Sanctum** (Token Authentication)
+- **MySQL**
+- **Postman** (Testing API)
+- **Swagger / Postman Collection** (Documentation)
+
+---
